@@ -1,0 +1,29 @@
+{
+    "name": "coolui-api",
+    "version": "1.0.0",
+    "description": "REST API para CoolUI",
+    "main": "app.js",
+    "scripts": {
+        "start": "tsc && node dist/server.js",
+        "dev": "nodemon --exec ts-node src/server.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GRJorge/coolui-api.git"
+    },
+    "author": "Jorge Garcia",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GRJorge/coolui-api/issues"
+    },
+    "homepage": "https://github.com/GRJorge/coolui-api#readme",
+    "dependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/morgan": "^1.9.9",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "morgan": "^1.10.0"
+    }
+}
