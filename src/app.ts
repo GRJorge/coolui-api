@@ -6,7 +6,7 @@ import 'dotenv/config';
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
