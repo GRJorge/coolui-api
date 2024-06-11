@@ -5,7 +5,7 @@ const schema = new Schema(
         username: { type: String, require: true, minlength: 4, maxlength: 16 },
         email: { type: String, require: true, immutable: true, minlength: 4, maxlength: 128 },
         password: { type: String, require: true, minlength: 6 },
-        //photo
+        profilePicture: { type: String },
         //favoritePalettes
     },
     {
