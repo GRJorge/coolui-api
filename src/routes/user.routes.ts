@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import upload from '../middlewares/uploadProfilePicture.middleware';
+import uploadProfilePicture from '../middlewares/uploadProfilePicture.middleware';
+import optimizePicture from '../middlewares/optimizePicture.middleware';
+import controller from '../controllers/user.controller';
 
 const router = Router();
 
-router.post('/uploadPicture', upload.single('picture'), (req, res) => {
-    res.json(req.file);
-});
+router.post('/create', uploadProfilePicture.single('profilePicture'), optimizePicture, controller.createUser);
 
 export default router;
