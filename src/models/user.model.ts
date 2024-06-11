@@ -1,10 +1,17 @@
 import { Schema, model } from 'mongoose';
 
-const schema = new Schema(
+interface interfaceUser {
+    username: string;
+    email: string;
+    password: string;
+    profilePicture: string;
+}
+
+const schema = new Schema<interfaceUser>(
     {
-        username: { type: String, require: true, minlength: 4, maxlength: 16 },
-        email: { type: String, require: true, immutable: true, minlength: 4, maxlength: 128 },
-        password: { type: String, require: true, minlength: 6 },
+        username: { type: String, required: true, minlength: 4, maxlength: 16 },
+        email: { type: String, required: true, immutable: true, unique: true, minlength: 4, maxlength: 128 },
+        password: { type: String, required: true, minlength: 6 },
         profilePicture: { type: String },
         //favoritePalettes
     },
@@ -14,4 +21,5 @@ const schema = new Schema(
     }
 );
 
-export default model('User', schema);
+export default model<interfaceUser>('User', schema);
+export { interfaceUser };
