@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 import { interfaceUser } from '../models/user.model';
 import userService from '../services/user.service';
+import { encrypt } from '../utils/encryption';
 
 class UserController {
     async createUser(req: Request, res: Response) {
         const { username, email, password } = req.body;
 
-        const newUser: interfaceUser = { username, email, password, profilePicture: req.file ? `${req.file!.filename.split('.').slice(0, -1)}.webp` : 'default.webp' };
+        const newUser: interfaceUser = { username, email, password: await encrypt(password, 10), profilePicture: req.file ? `${req.file!.filename.split('.').slice(0, -1)}.webp` : 'default.webp' };
 
         try {
             const user = await userService.createUser(newUser);
